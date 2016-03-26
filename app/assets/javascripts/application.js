@@ -27,4 +27,28 @@ $(function() {
       attribution: 'Map data &copy; ' + mapLink,
       maxZoom: 18,
     }).addTo(myMap);
+
+
+  $('form').on('submit', function(e) {
+    var formData = $("#form :input")
+      .filter(function(index, element) {
+        return $(element).val() !== "";
+      })
+      .serialize();
+
+    var url = "/legacies?" + formData;
+
+    $.ajax({
+      type: "GET",
+      url: url,
+      success: function(data) {
+        console.log(data);
+        displayMarkers(data);
+      }
+    });
+
+    e.preventDefault();
+
+  });
+
 });
