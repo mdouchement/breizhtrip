@@ -1,0 +1,367 @@
+# Common configuration.
+Rails:
+  Enabled: true
+AllCops:
+  TargetRubyVersion: 2.3
+  # Include gemspec and Rakefile
+  Include:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+    - 'config/routes.rb'
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+
+# Indent private/protected/public as deep as method definitions
+AccessModifierIndentation:
+  EnforcedStyle: indent
+  SupportedStyles:
+    - outdent
+    - indent
+
+# Align the elements of a hash literal if they span more than one line.
+AlignHash:
+  EnforcedLastArgumentHashStyle: always_inspect
+  SupportedLastArgumentHashStyles:
+    - always_inspect
+    - always_ignore
+    - ignore_implicit
+    - ignore_explicit
+
+AlignParameters:
+  EnforcedStyle: with_first_parameter
+  SupportedStyles:
+    - with_first_parameter
+    - with_fixed_indentation
+
+# Allow safe assignment in conditions.
+AssignmentInCondition:
+  AllowSafeAssignment: true
+
+AmbiguousOperator:
+  Enabled: false
+
+BlockNesting:
+  Max: 3
+
+BracesAroundHashParameters:
+  EnforcedStyle: no_braces
+  SupportedStyles:
+    - braces
+    - no_braces
+
+# Indentation of `when`.
+CaseIndentation:
+  IndentWhenRelativeTo: case
+  SupportedStyles:
+    - case
+    - end
+  IndentOneStep: false
+
+ClassAndModuleChildren:
+  # The compact style is only forced, for classes / modules with one child.
+  EnforcedStyle: nested
+  SupportedStyles:
+    - nested
+    - compact
+
+ClassLength:
+  CountComments: false  # count full line comments?
+  Max: 140
+
+# Align with the style guide.
+CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
+
+# Checks formatting of special comments
+CommentAnnotation:
+  Keywords:
+    - TODO
+    - FIXME
+    - OPTIMIZE
+    - HACK
+    - REVIEW
+
+# Avoid complex methods.
+CyclomaticComplexity:
+  Max: 6
+
+# Multi-line method chaining should be done with leading dots.
+DotPosition:
+  EnforcedStyle: leading
+  SupportedStyles:
+    - leading
+    - trailing
+
+# Use empty lines between defs.
+EmptyLineBetweenDefs:
+  # If true, this parameter means that single line method definitions don't
+  # need an empty line between them.
+  AllowAdjacentOneLineDefs: false
+
+# Align ends correctly.
+EndAlignment:
+  AlignWith: keyword
+  SupportedStyles:
+    - keyword
+    - variable
+
+FileName:
+  Exclude:
+    - Rakefile
+    - Gemfile
+    - Capfile
+
+# Checks use of for or each in multiline loops.
+For:
+  EnforcedStyle: each
+  SupportedStyles:
+    - for
+    - each
+
+# Enforce the method used for string formatting.
+FormatString:
+  EnforcedStyle: format
+  SupportedStyles:
+    - format
+    - sprintf
+    - percent
+
+# Built-in global variables are allowed by default.
+GlobalVars:
+  AllowedVariables: []
+
+HashSyntax:
+  EnforcedStyle: ruby19
+  SupportedStyles:
+    - ruby19
+    - hash_rockets
+
+IfUnlessModifier:
+  MaxLineLength: 99
+
+# Checks the indentation of the first key in a hash literal.
+IndentHash:
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+    - special_inside_parentheses
+    - consistent
+
+LambdaCall:
+  EnforcedStyle: call
+  SupportedStyles:
+    - call
+    - braces
+
+LineLength:
+  Max: 99
+
+MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+
+MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 16
+
+MethodName:
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+NumericLiterals:
+  MinDigits: 5
+
+ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+
+# Allow safe assignment in conditions.
+ParenthesesAroundCondition:
+  AllowSafeAssignment: true
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': ()
+    '%W': ()
+    '%x': ()
+
+PredicateName:
+  NamePrefixBlacklist:
+    - is_
+    - has_
+    - have_
+
+RaiseArgs:
+  EnforcedStyle: exploded
+  SupportedStyles:
+    - compact # raise Exception.new(msg)
+    - exploded # raise Exception, msg
+
+
+RedundantReturn:
+  # When true allows code like `return x, y`.
+  AllowMultipleReturnValues: false
+
+RedundantSelf:
+  Description: "Don't use self where it's not needed."
+  Enabled: false
+
+# Use / or %r around regular expressions.
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  SupportedStyles:
+    - slashes
+    - percent_r
+    - mixed
+  AllowInnerSlashes: false
+
+Semicolon:
+  # Allow ; to separate several expressions on the same line.
+  AllowAsExpressionSeparator: false
+
+SignalException:
+  EnforcedStyle: semantic
+  SupportedStyles:
+    - only_raise
+    - only_fail
+    - semantic
+
+
+SingleLineBlockParams:
+  Methods:
+    - reduce:
+        - a
+        - e
+    - inject:
+        - a
+        - e
+
+SingleLineMethods:
+  AllowIfMethodIsEmpty: true
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+  # Valid values are: space, no_space
+  EnforcedStyleForEmptyBraces: no_space
+  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
+  SpaceBeforeBlockParameters: true
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma
+  SupportedStyles:
+    - comma
+    - consistent_comma
+    - no_comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: no_comma
+  SupportedStyles:
+    - comma
+    - consistent_comma
+    - no_comma
+
+# TrivialAccessors doesn't require exact name matches and doesn't allow
+# predicated methods by default.
+TrivialAccessors:
+  ExactNameMatch: false
+  AllowPredicates: false
+  Whitelist:
+    - to_ary
+    - to_a
+    - to_c
+    - to_enum
+    - to_h
+    - to_hash
+    - to_i
+    - to_int
+    - to_io
+    - to_open
+    - to_path
+    - to_proc
+    - to_r
+    - to_regexp
+    - to_str
+    - to_s
+    - to_sym
+
+VariableName:
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+WhileUntilModifier:
+  MaxLineLength: 100
+
+WordArray:
+  MinSize: 0
+
+Documentation:
+  Enabled: false
+
+# Compact name spaces
+ClassAndModuleChildren:
+  Enabled: false
+
+AlignParameters:
+  Enabled: false
+
+# Unrecognize fail/raise args with custom erors
+RaiseArgs:
+  EnforcedStyle: compact
+
+# Ignore alert on versioning module like V7_5
+ClassAndModuleCamelCase:
+  Enabled: false
+
+LiteralInInterpolation:
+  Enabled: false
+
+MethodLength:
+  Max: 40
