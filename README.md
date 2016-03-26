@@ -1,6 +1,8 @@
 # BreizhTrip
 
 Some description
+![Desc](https://github.com/mdouchement/breizhtrip/blob/master/screencapture.png)
+
 
 ## Requirements
 - MRI 2.3.0
