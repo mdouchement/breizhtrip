@@ -34,8 +34,8 @@
 #  lien_image                       :string
 #  date_modif                       :string
 #  geometry_type                    :string
-#  longitude                        :string
-#  latitude                         :string
+#  longitude                        :float
+#  latitude                         :float
 #  created_at                       :datetime
 #  updated_at                       :datetime
 #
