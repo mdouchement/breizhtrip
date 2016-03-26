@@ -3,7 +3,8 @@
 Some description
 
 ## Requirements
- - MRI 2.2.4, 2.3.0
+- MRI 2.3.0
+- Postgres 9.5
 
 
 ## License
