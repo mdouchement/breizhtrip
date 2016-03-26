@@ -32,8 +32,8 @@ class CreateLegacies < ActiveRecord::Migration
       t.string :lien_image
       t.string :date_modif
       t.string :geometry_type
-      t.string :longitude
-      t.string :latitude
+      t.float :longitude
+      t.float :latitude
 
       t.timestamps
     end
