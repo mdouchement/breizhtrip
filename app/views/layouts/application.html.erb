@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
     <%= stylesheet_link_tag    "application" %>
-    <%= stylesheet_link_tag    "leaflet" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -18,6 +16,5 @@
   </body>
   <footer>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag "leaflet", 'data-turbolinks-track' => true %>
   </footer>
 </html>
