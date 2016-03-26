@@ -122,7 +122,6 @@ $(function() {
     var url = "/legacies?" + formData + "&latitude=" + e.latlng.lat +
       "&longitude=" + e.latlng.lng + "&radius=" + radius;
 
-
     $.ajax({
       type: "GET",
       url: url,
@@ -137,9 +136,6 @@ $(function() {
         displayMarkers(data);
       }
     });
-
   }
-
   myMap.on('click', onMapClick);
-
 });
