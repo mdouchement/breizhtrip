@@ -1,4 +1,31 @@
 <div class="container">
-  <div id="mapId" class="map">
+  <div class="form">
+
+    <form action="" method="get" class="" id="form">
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Patrimoine
+            <input type="text" placeholder="Château, moulin, croix..." name="titre_courant" value="">
+          </label>
+
+          <label>Adresse
+            <input type="text" placeholder="10  rue de Rennes" name="adresse" value="">
+          </label>
+          <label>Lieu dit
+            <input type="text" placeholder="Pen Ar Ras" name="lieu_dit" value="">
+          </label>
+          <label>Commune
+            <input type="text" placeholder="Rennes" name="commune" value="">
+          </label>
+          <label>Datation
+            <input type="text" placeholder="19e" name="datation" value="">
+          </label>
+          <div class="input-group-button">
+            <input type="submit" class="button expanded" value="Submit">
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
+  <div id="mapId" class="map"></div>
 </div>

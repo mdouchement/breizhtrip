@@ -15,11 +15,18 @@
  *= require foundation_and_overrides
 
  */
-
 @import "leaflet";
-
-.map{
+.map {
   display: flex;
   height: 100vh;
   width: 100%;
+}
+.form {
+  width: 20%;
+  position: fixed;
+  height: auto;
+  right: 0;
+  background-color: rgba(255,255,255,0.85);
+  z-index: 999;
+  padding-bottom: 15px;
 }
