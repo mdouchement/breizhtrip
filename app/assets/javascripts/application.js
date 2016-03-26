@@ -123,7 +123,7 @@ $(function() {
       })
       .serialize();
 
-    var radius = 2000;
+    var radius = parseInt($("#radius").val());
     var url = "/legacies?" + formData + "&latitude=" + e.latlng.lat +
       "&longitude=" + e.latlng.lng + "&radius=" + radius;
 
