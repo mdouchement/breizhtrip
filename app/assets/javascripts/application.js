@@ -33,6 +33,10 @@ $(function() {
 
   var markers = [];
 
+  //events
+  myMap.on('click', onMapClick);
+  $('.clear-markers').on('click', clearMarkers);
+
   $('form').on('submit', function(e) {
 
     var formData = $("#form :input")
@@ -56,6 +60,7 @@ $(function() {
 
   });
 
+  // functions
   function displayMarkers(data) {
 
     data.forEach(function(element, index, array) {
@@ -137,5 +142,5 @@ $(function() {
       }
     });
   }
-  myMap.on('click', onMapClick);
+
 });
