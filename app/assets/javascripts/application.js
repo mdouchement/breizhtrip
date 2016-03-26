@@ -19,6 +19,8 @@
 
 $(function() {
   $(document).foundation();
+
+  // Map init
   var myMap = L.map('mapId').setView([48.7455, -3.4696], 13);
   mapLink =
     '<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -108,5 +110,32 @@ $(function() {
       myMap.removeLayer(element);
     });
   }
+
+  function onMapClick(e) {
+    var radius = 2000;
+    var url = "/legacies?latitude=" + e.latlng.lat + "&longitude=" + e.latlng
+      .lng + "&radius=" + radius;
+
+
+    $.ajax({
+      type: "GET",
+      url: url,
+      success: function(data) {
+        clearMarkers();
+        var circle = L.circle([e.latlng.lat, e.latlng.lng], radius, {
+          color: 'orange',
+          fillColor: '#FFA500',
+          fillOpacity: 0.2
+        }).addTo(myMap);
+        markers.push(circle);
+        displayMarkers(data);
+      }
+    });
+
+
+
+  }
+
+  myMap.on('click', onMapClick);
 
 });
