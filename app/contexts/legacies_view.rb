@@ -12,7 +12,7 @@ class LegaciesView
 
   def call
     @legacies = Legacy
-    if (filtred = Legacy.where(search_params)).present?
+    if (filtred = Legacy.where(like_clauses)).present?
       @legacies = filtred
     end
     area_filter
@@ -38,5 +38,13 @@ class LegaciesView
     ra = params[:radius]&.to_f
     return unless lo && la && ra
     @legacies = @legacies.where("|/( (#{la} - latitude)^2.0 + (#{lo} - longitude)^2.0 ) <= #{ra} / 111000")
+  end
+
+  def like_clauses
+    [' id IS NOT NULL '].tap do |query|
+      search_params.each do |k, v|
+        query << " #{k} ILIKE '%#{v}%' "
+      end
+    end.join('AND')
   end
 end
