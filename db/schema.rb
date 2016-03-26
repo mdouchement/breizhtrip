@@ -11,11 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326101800) do
+ActiveRecord::Schema.define(version: 20160326105800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
   enable_extension "citext"
+
+  create_table "legacies", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "gml_id"
+    t.integer  "oid"
+    t.string   "search_id"
+    t.string   "reference"
+    t.string   "titre_courant"
+    t.string   "type_dossier"
+    t.string   "denomination"
+    t.string   "cadre_etude"
+    t.string   "affixe_cadre_etude"
+    t.string   "date_enquete"
+    t.string   "date_bordereau"
+    t.string   "nature_dossier"
+    t.string   "phase"
+    t.string   "destinations"
+    t.string   "parties_constituantes_non_etudie"
+    t.string   "adresse"
+    t.string   "lieu_dit"
+    t.string   "commune"
+    t.string   "datations_principales"
+    t.string   "datations_secondaires"
+    t.string   "materiaux_murs"
+    t.string   "materiaux_toit"
+    t.string   "protection"
+    t.string   "dates_protection"
+    t.string   "statut"
+    t.string   "selection"
+    t.string   "aire_etude"
+    t.string   "lien_dossier"
+    t.string   "lien_image"
+    t.string   "date_modif"
+    t.string   "geometry_type"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "legacies", ["adresse"], name: "index_legacies_on_adresse", using: :btree
+  add_index "legacies", ["aire_etude"], name: "index_legacies_on_aire_etude", using: :btree
+  add_index "legacies", ["commune"], name: "index_legacies_on_commune", using: :btree
+  add_index "legacies", ["denomination"], name: "index_legacies_on_denomination", using: :btree
+  add_index "legacies", ["latitude"], name: "index_legacies_on_latitude", using: :btree
+  add_index "legacies", ["lieu_dit"], name: "index_legacies_on_lieu_dit", using: :btree
+  add_index "legacies", ["longitude"], name: "index_legacies_on_longitude", using: :btree
+  add_index "legacies", ["titre_courant"], name: "index_legacies_on_titre_courant", using: :btree
+  add_index "legacies", ["type_dossier"], name: "index_legacies_on_type_dossier", using: :btree
 
 end
