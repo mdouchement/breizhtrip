@@ -41,7 +41,7 @@ class LegaciesView
   end
 
   def like_clauses
-    [' id IS NOT NULL '].tap do |query|
+    [' latitude IS NOT NULL AND longitude IS NOT NULL '].tap do |query|
       search_params.each do |k, v|
         query << " #{k} ILIKE '%#{v}%' "
       end
