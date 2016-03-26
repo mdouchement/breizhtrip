@@ -7,9 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <%= stylesheet_link_tag    "leaflet" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -18,4 +16,8 @@
     <%= yield %>
 
   </body>
+  <footer>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "leaflet", 'data-turbolinks-track' => true %>
+  </footer>
 </html>
