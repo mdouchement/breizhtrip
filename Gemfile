@@ -5,6 +5,8 @@ gem 'rails-api', '0.4.0'
 
 gem 'pg'
 
+gem 'active_model_serializers', '0.10.0.rc4'
+
 gem 'simple_form', '~> 3.2'
 gem 'foundation-rails', '~> 6.2'
 gem 'autoprefixer-rails', '~> 5.1.7'
