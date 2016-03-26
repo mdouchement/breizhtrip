@@ -14,6 +14,6 @@ class LegaciesController < ApplicationController
   private
 
   def search_params
-    params.permit(Legacy.attribute_names.map(&:to_sym))
+    params.permit(Legacy.attribute_names.map(&:to_sym) - %i(latitude longitude))
   end
 end

@@ -14,4 +14,19 @@ namespace :legacy do
       Legacy.create!(params)
     end
   end
+
+  task :load_tsv, [:filepath] => :environment do |_t, args|
+    @is_header = true
+    File.open(args[:filepath], 'r') do |tsv|
+      tsv.each_line do |line|
+        raw = line.strip.split("\t")
+        if @is_header
+          @header = raw
+          @is_header = false
+        else
+          Legacy.create!(Hash[@header.zip(raw)])
+        end
+      end
+    end
+  end
 end
