@@ -12,4 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+@import "leaflet";
+
+.map{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}

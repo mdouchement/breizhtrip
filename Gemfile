@@ -5,6 +5,10 @@ gem 'rails-api', '0.4.0'
 
 gem 'pg'
 
+gem 'simple_form', '~> 3.2'
+gem 'foundation-rails', '~> 6.2'
+gem 'autoprefixer-rails', '~> 5.1.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
