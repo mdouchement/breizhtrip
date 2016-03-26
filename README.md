@@ -12,6 +12,7 @@ Some description
 bundle exec rake 'legacy:load[inventaire_patrimoine.json]'
 ```
 > https://www.data.gouv.fr/fr/datasets/inventaire-du-patrimoine-breton/
+
 > https://inspire.data.gouv.fr/api/geogw/services/556c6042330f1fcd4833794d/feature-types/rb:inventaire_patrimoine/download?format=GeoJSON&projection=WGS84
 
 
