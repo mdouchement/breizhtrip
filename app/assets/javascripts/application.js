@@ -72,34 +72,34 @@ $(function() {
   function parseInfo(element) {
     var text = "";
 
-    if (element.hasOwnProperty("adresse"))
+    if (element.adresse !== null)
       text += "Adresse: " + element.adresse + "<br>";
 
-    if (element.hasOwnProperty("cadre_etude"))
+    if (element.cadre_etude !== null)
       text += "Cadre d'etude: " + element.cadre_etude + "<br>";
 
-    if (element.hasOwnProperty("commune"))
+    if (element.commune !== null)
       text += "Commune: " + element.commune + "<br>";
 
-    if (element.hasOwnProperty("datations_principales"))
+    if (element.datations_principales !== null)
       text += "Datations: " + element.datations_principales + "<br>";
 
-    if (element.hasOwnProperty("date_enquete"))
+    if (element.date_enquete !== null)
       text += "Date Enquete: " + element.date_enquete + "<br>";
 
-    if (element.hasOwnProperty("denomination"))
+    if (element.denomination !== null)
       text += "Denomination: " + element.denomination + "<br>";
 
-    if (element.hasOwnProperty("lieu_dit"))
+    if (element.lieu_dit !== null)
       text += "Lieu dit: " + element.lieu_dit + "<br>";
 
-    if (element.hasOwnProperty("phase"))
+    if (element.phase !== null)
       text += "Phase: " + element.phase + "<br>";
 
-    if (element.hasOwnProperty("statut"))
+    if (element.statut !== null)
       text += "Statut: " + element.statut + "<br>";
 
-    if (element.hasOwnProperty("lien_image"))
+    if (element.lien_image !== null)
       text += '<img src=' + element.lien_image + ' alt=""><br>';
 
     return text;
@@ -112,9 +112,15 @@ $(function() {
   }
 
   function onMapClick(e) {
+    var formData = $("#form :input")
+      .filter(function(index, element) {
+        return $(element).val() !== "";
+      })
+      .serialize();
+
     var radius = 2000;
-    var url = "/legacies?latitude=" + e.latlng.lat + "&longitude=" + e.latlng
-      .lng + "&radius=" + radius;
+    var url = "/legacies?" + formData + "&latitude=" + e.latlng.lat +
+      "&longitude=" + e.latlng.lng + "&radius=" + radius;
 
 
     $.ajax({
@@ -131,8 +137,6 @@ $(function() {
         displayMarkers(data);
       }
     });
-
-
 
   }
 
