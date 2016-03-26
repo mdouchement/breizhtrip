@@ -11,18 +11,32 @@ class LegaciesView
   end
 
   def call
-    sort Legacy.where(search_params)
+    @legacies = Legacy
+    if (filtred = Legacy.where(search_params)).present?
+      @legacies = filtred
+    end
+    area_filter
+    sort_filter
+    @legacies.is_a?(Legacy) ? Legacy.all : @legacies
   end
 
   private
 
-  def sort(legacies)
-    return legacies unless valid_sort_params?
-    legacies.order(params[:order_by] => params[:order_type])
+  def sort_filter
+    return unless valid_sort_params?
+    @legacies = @legacies.order(params[:order_by] => params[:order_type])
   end
 
   def valid_sort_params?
     Legacy.attribute_names.map(&:to_s).include?(params[:order_by]) &&
       %w(asc desc).include?(params[:order_type])
+  end
+
+  def area_filter
+    lo = params[:longitude]&.to_f
+    la = params[:latitude]&.to_f
+    ra = params[:radius]&.to_f
+    return unless lo && la && ra
+    @legacies = @legacies.where("|/( (#{la} - latitude)^2.0 + (#{lo} - longitude)^2.0 ) <= #{ra} / 111000")
   end
 end
