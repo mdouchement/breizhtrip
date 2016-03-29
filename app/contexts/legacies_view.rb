@@ -11,10 +11,7 @@ class LegaciesView
   end
 
   def call
-    @legacies = Legacy
-    if (filtred = Legacy.where(like_clauses)).present?
-      @legacies = filtred
-    end
+    @legacies = Legacy.where(like_clauses)
     area_filter
     sort_filter
     @legacies.is_a?(Legacy) ? Legacy.all : @legacies
