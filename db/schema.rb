@@ -57,13 +57,11 @@ ActiveRecord::Schema.define(version: 20160326105800) do
   end
 
   add_index "legacies", ["adresse"], name: "index_legacies_on_adresse", using: :btree
-  add_index "legacies", ["aire_etude"], name: "index_legacies_on_aire_etude", using: :btree
   add_index "legacies", ["commune"], name: "index_legacies_on_commune", using: :btree
-  add_index "legacies", ["denomination"], name: "index_legacies_on_denomination", using: :btree
+  add_index "legacies", ["datations_principales"], name: "index_legacies_on_datations_principales", using: :btree
   add_index "legacies", ["latitude"], name: "index_legacies_on_latitude", using: :btree
   add_index "legacies", ["lieu_dit"], name: "index_legacies_on_lieu_dit", using: :btree
   add_index "legacies", ["longitude"], name: "index_legacies_on_longitude", using: :btree
   add_index "legacies", ["titre_courant"], name: "index_legacies_on_titre_courant", using: :btree
-  add_index "legacies", ["type_dossier"], name: "index_legacies_on_type_dossier", using: :btree
 
 end

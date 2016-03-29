@@ -41,11 +41,9 @@ class CreateLegacies < ActiveRecord::Migration
     add_index :legacies, :longitude
     add_index :legacies, :latitude
     add_index :legacies, :titre_courant
-    add_index :legacies, :type_dossier
-    add_index :legacies, :denomination
-    add_index :legacies, :aire_etude
-    add_index :legacies, :commune
     add_index :legacies, :lieu_dit
     add_index :legacies, :adresse
+    add_index :legacies, :commune
+    add_index :legacies, :datations_principales
   end
 end
