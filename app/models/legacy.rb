@@ -41,15 +41,13 @@
 #
 # Indexes
 #
-#  index_legacies_on_adresse        (adresse)
-#  index_legacies_on_aire_etude     (aire_etude)
-#  index_legacies_on_commune        (commune)
-#  index_legacies_on_denomination   (denomination)
-#  index_legacies_on_latitude       (latitude)
-#  index_legacies_on_lieu_dit       (lieu_dit)
-#  index_legacies_on_longitude      (longitude)
-#  index_legacies_on_titre_courant  (titre_courant)
-#  index_legacies_on_type_dossier   (type_dossier)
+#  index_legacies_on_adresse                (adresse)
+#  index_legacies_on_commune                (commune)
+#  index_legacies_on_datations_principales  (datations_principales)
+#  index_legacies_on_latitude               (latitude)
+#  index_legacies_on_lieu_dit               (lieu_dit)
+#  index_legacies_on_longitude              (longitude)
+#  index_legacies_on_titre_courant          (titre_courant)
 #
 
 class Legacy < ActiveRecord::Base
