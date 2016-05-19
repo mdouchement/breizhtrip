@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 gem 'rails', '4.2.6'
 gem 'rails-api', '0.4.0'
 gem 'active_model_serializers', '0.10.0.rc4'
 gem 'pg'
 gem 'rack-cors'
+
 
 group :assets, :development, :test, :production do
   gem 'simple_form', '~> 3.2'
@@ -13,6 +15,7 @@ group :assets, :development, :test, :production do
   gem 'jquery-rails'
   gem 'turbolinks'
   gem 'uglifier', '>= 1.3.0'
+  gem 'therubyracer'
 end
 
 group :development, :test do
