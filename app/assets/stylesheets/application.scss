@@ -10,32 +10,38 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require leaflet.markercluster
+ *= require leaflet.markercluster.default
  *= require_tree .
  *= require_self
  *= require leaflet
  *= require foundation_and_overrides
-
  */
-@import "leaflet";
+
+@import 'leaflet';
+@import 'leaflet.markercluster';
+@import 'leaflet.markercluster.default';
+
 .map {
   display: flex;
   height: 100vh;
   width: 100%;
 }
+
 .form {
-  width: 20%;
-  position: fixed;
+  background-color: rgba(255,255,255,.85);
   height: auto;
-  right: 0;
-  background-color: rgba(255,255,255,0.85);
-  z-index: 999;
   padding-bottom: 15px;
+  position: fixed;
+  right: 0;
+  width: 20%;
+  z-index: 999;
 }
 
-.clear-markers{
-  margin-top: 15px;
+.clear-markers {
   background-color: green;
-  &:hover{
+  margin-top: 15px;
+  &:hover {
     background-color: green;
   }
 }

@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require leaflet
+//= require leaflet.markercluster
 //= require_tree .
 
 $(function() {
@@ -22,16 +23,22 @@ $(function() {
 
   // Map init
   var myMap = L.map('mapId').setView([48.7455, -3.4696], 13);
-  mapLink =
-    '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+  var markers = [];
+  var markerCluster = L.markerClusterGroup({
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: true,
+    zoomToBoundsOnClick: true,
+    removeOutsideVisibleBounds: true,
+    maxClusterRadius: 8
+});
+
+  mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
   L.tileLayer(
     'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; ' + mapLink,
       maxZoom: 18,
     }).addTo(myMap);
-
-  var markers = [];
 
   //events
   myMap.on('click', onMapClick);
@@ -68,10 +75,12 @@ $(function() {
       var info = element.lieu_dit !== "" ? element.lieu_dit : element.titre_courant;
       var text = parseInfo(element);
 
-      marker.addTo(myMap)
-        .bindPopup(text);
+      marker.bindPopup(text);
       markers.push(marker);
+      markerCluster.addLayer(marker);
+
     });
+    myMap.addLayer(markerCluster);
   }
 
   function parseInfo(element) {
@@ -113,6 +122,7 @@ $(function() {
   function clearMarkers() {
     markers.forEach(function(element, index, array) {
       myMap.removeLayer(element);
+      markerCluster.removeLayer(element);
     });
   }
 
