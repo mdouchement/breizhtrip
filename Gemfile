@@ -15,7 +15,7 @@ group :assets, :development, :test, :production do
   gem 'jquery-rails'
   gem 'turbolinks'
   gem 'uglifier', '>= 1.3.0'
-  gem 'therubyracer'
+  # gem 'therubyracer' # What is its use ? Doesn't dockerize with it
 end
 
 group :development, :test do
