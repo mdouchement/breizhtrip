@@ -7,6 +7,7 @@ gem 'active_model_serializers', '0.10.0.rc4'
 gem 'pg'
 gem 'rack-cors'
 gem 'leaflet-rails', '~> 0.7.7'
+gem 'leaflet-markercluster-rails', '~> 0.7.0'
 
 group :assets, :development, :test, :production do
   gem 'simple_form', '~> 3.2'
