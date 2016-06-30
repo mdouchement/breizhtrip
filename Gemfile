@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 gem 'rails', '4.2.6'
 gem 'rails-api', '0.4.0'
-
-gem 'pg'
-
 gem 'active_model_serializers', '0.10.0.rc4'
-
-gem 'simple_form', '~> 3.2'
-gem 'foundation-rails', '~> 6.2'
-gem 'sass-rails', '~> 5.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-
+gem 'pg'
 gem 'rack-cors'
+
+
+group :assets, :development, :test, :production do
+  gem 'simple_form', '~> 3.2'
+  gem 'foundation-rails', '~> 6.2'
+  gem 'sass-rails', '~> 5.0'
+  gem 'jquery-rails'
+  gem 'turbolinks'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'therubyracer'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -32,6 +35,6 @@ group :development do
 end
 
 group :production do
-  gem 'uglifier', '>= 1.3.0'
+  gem 'rails_12factor'
   gem 'puma'
 end
