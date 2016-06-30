@@ -16,8 +16,9 @@ namespace :legacy do
   end
 
   task :load_tsv, [:filepath] => :environment do |_t, args|
+    require 'open-uri'
     @is_header = true
-    File.open(args[:filepath], 'r') do |tsv|
+    open(args[:filepath], 'r') do |tsv|
       tsv.each_line do |line|
         raw = line.strip.split("\t")
         if @is_header
