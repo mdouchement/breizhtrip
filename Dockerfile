@@ -1,5 +1,5 @@
-FROM ruby:2.3.0-alpine
-MAINTAINER mdouchement
+FROM ruby:2.3.1-alpine
+MAINTAINER mdouchement, franckke
 
 ARG BUILD_DEPENDENCIES='build-base'
 ARG DEPENDENCIES='postgresql-dev libxml2-dev libxslt-dev tzdata nodejs'
@@ -21,7 +21,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 # throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle config build.nokogiri
 RUN bundle config --global frozen 1
 RUN bundle install --deployment --without development test
 
