@@ -52,7 +52,7 @@ $(function() {
       })
       .serialize();
 
-    var url = "/legacies?" + formData;
+    var url = window.location.href  + "/legacies?" + formData;
 
     $.ajax({
       type: "GET",
@@ -134,7 +134,7 @@ $(function() {
       .serialize();
 
     var radius = parseInt($("#radius").val());
-    var url = "/legacies?" + formData + "&latitude=" + e.latlng.lat +
+    var url = window.location.href  + "/legacies?" + formData + "&latitude=" + e.latlng.lat +
       "&longitude=" + e.latlng.lng + "&radius=" + radius;
 
     $.ajax({
