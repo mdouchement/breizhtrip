@@ -10,6 +10,9 @@ ENV LANG c.UTF-8
 # App
 ENV RAILS_ENV production
 ENV RACK_ENV production
+# Namespace for the application. Necessary for the asset compilation
+# Update as needed
+ENV RAILS_RELATIVE_URL_ROOT /breizhtrip
 ENV SECRET_KEY_BASE tmp_376ea25aaa66984733a90920c263ba138e1e571aaf3a1a54cd2b819cb06e8b7fb311027b639eb8f55d8d53c27cf2df378ceb36008462057861d824bd13a0
 
 # Install build dependencies
